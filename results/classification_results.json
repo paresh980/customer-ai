@@ -1,0 +1,122 @@
+[
+  {
+    "call_id": "CALL-001",
+    "filename": "call_001_closed.wav",
+    "expected_category": "Closed",
+    "transcript": "Hello, I called last week about my Smartnode touch switch not responding to the app. Your technician visited yesterday and replaced the Wi-Fi module. Everything is working perfectly now. The lights respond instantly and the schedule feature is back. I just wanted to confirm the issue is fully resolved. Thank you for the quick support!",
+    "source": "script_fallback",
+    "rule_based_prediction": "Closed",
+    "rule_based_scores": {
+      "Urgent": 0,
+      "Closed": 4,
+      "Open": 0
+    },
+    "zero_shot_prediction": "Open",
+    "zero_shot_confidence": 0.9392,
+    "zero_shot_all_scores": {
+      "Open": 0.9392,
+      "Closed": 0.0355,
+      "Urgent": 0.0253
+    }
+  },
+  {
+    "call_id": "CALL-002",
+    "filename": "call_002_open.wav",
+    "expected_category": "Open",
+    "transcript": "Hi, I am a dealer from Ahmedabad. I installed Smartnode curtain controllers in a client's villa last month. Two of the five units are showing intermittent connectivity drops with the hub. The curtains sometimes move on their own. I have already tried re-pairing them but the problem comes back after a day. Could you please look into this and let me know what firmware update or replacement is needed? I am waiting for your response.",
+    "source": "script_fallback",
+    "rule_based_prediction": "Open",
+    "rule_based_scores": {
+      "Urgent": 0,
+      "Closed": 0,
+      "Open": 5
+    },
+    "zero_shot_prediction": "Open",
+    "zero_shot_confidence": 0.9447,
+    "zero_shot_all_scores": {
+      "Open": 0.9447,
+      "Urgent": 0.0536,
+      "Closed": 0.0017
+    }
+  },
+  {
+    "call_id": "CALL-003",
+    "filename": "call_003_urgent.wav",
+    "expected_category": "Urgent",
+    "transcript": "This is an emergency! The Smartnode smart door lock at my home has completely stopped working. We cannot unlock the front door and my elderly parents are locked inside. The battery shows full charge in the app but the motor does not engage at all. We need a technician immediately — this is a safety issue! Please escalate this right now, we cannot wait until tomorrow.",
+    "source": "script_fallback",
+    "rule_based_prediction": "Urgent",
+    "rule_based_scores": {
+      "Urgent": 16,
+      "Closed": 0,
+      "Open": 0
+    },
+    "zero_shot_prediction": "Urgent",
+    "zero_shot_confidence": 0.952,
+    "zero_shot_all_scores": {
+      "Urgent": 0.952,
+      "Open": 0.0476,
+      "Closed": 0.0004
+    }
+  },
+  {
+    "call_id": "CALL-004",
+    "filename": "call_004_closed.wav",
+    "expected_category": "Closed",
+    "transcript": "Good afternoon. I previously raised a complaint about the IR blaster not controlling my air conditioner. The support team guided me through the re-learning process over a video call and now it works perfectly with all three ACs in my home. The issue stands resolved and I am very satisfied with the service. You can close this ticket. Thanks a lot.",
+    "source": "script_fallback",
+    "rule_based_prediction": "Closed",
+    "rule_based_scores": {
+      "Urgent": 0,
+      "Closed": 5,
+      "Open": 0
+    },
+    "zero_shot_prediction": "Closed",
+    "zero_shot_confidence": 0.9275,
+    "zero_shot_all_scores": {
+      "Closed": 0.9275,
+      "Open": 0.0702,
+      "Urgent": 0.0023
+    }
+  },
+  {
+    "call_id": "CALL-005",
+    "filename": "call_005_urgent.wav",
+    "expected_category": "Urgent",
+    "transcript": "I am calling from a hotel in Surat that uses Smartnode automation across 50 rooms. Since this morning, the entire system is down — none of the room panels are responding, lights and ACs cannot be controlled. We have guests checking in and this is causing serious business impact. We need your engineering team on-site today. This is extremely critical and urgent.",
+    "source": "script_fallback",
+    "rule_based_prediction": "Urgent",
+    "rule_based_scores": {
+      "Urgent": 12,
+      "Closed": 0,
+      "Open": 0
+    },
+    "zero_shot_prediction": "Urgent",
+    "zero_shot_confidence": 0.7993,
+    "zero_shot_all_scores": {
+      "Urgent": 0.7993,
+      "Open": 0.1995,
+      "Closed": 0.0012
+    }
+  },
+  {
+    "call_id": "CALL-006",
+    "filename": "call_006_open.wav",
+    "expected_category": "Open",
+    "transcript": "Hello, I bought the Smartnode scene controller last week. I am trying to set up a Good Night scene that turns off all lights and sets the AC to 24 degrees, but the app keeps showing an error when I try to save the scene. I have the latest app version. Could your team please check if this is a known bug and provide a timeline for the fix? No rush, but I would like an update when possible.",
+    "source": "script_fallback",
+    "rule_based_prediction": "Open",
+    "rule_based_scores": {
+      "Urgent": 0,
+      "Closed": 0,
+      "Open": 4
+    },
+    "zero_shot_prediction": "Open",
+    "zero_shot_confidence": 0.9726,
+    "zero_shot_all_scores": {
+      "Open": 0.9726,
+      "Urgent": 0.0251,
+      "Closed": 0.0024
+    }
+  }
+]

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartnode – AI/ML Use Cases for Customer Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e1a;
+            color: #e0e6f0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ───── Slide Container ───── */
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #0d1224 0%, #141b33 50%, #0f1628 100%);
+            border-radius: 20px;
+            padding: 48px 56px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 80px rgba(56, 120, 255, 0.08),
+                        0 4px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(56, 120, 255, 0.12);
+        }
+
+        /* Ambient glow orbs */
+        .slide::before {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(56, 120, 255, 0.10) 0%, transparent 70%);
+            top: -200px; right: -100px;
+            pointer-events: none;
+        }
+        .slide::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0, 210, 180, 0.08) 0%, transparent 70%);
+            bottom: -150px; left: -80px;
+            pointer-events: none;
+        }
+
+        /* ───── Header ───── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, #3878ff, #00d2b4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, #a0b8e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: rgba(56, 120, 255, 0.12);
+            color: #6ea8ff;
+            padding: 6px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(56, 120, 255, 0.25);
+        }
+
+        /* ───── Title ───── */
+        .title-section {
+            text-align: center;
+            margin-bottom: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title-section h1 {
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1.25;
+            background: linear-gradient(90deg, #ffffff 0%, #6ea8ff 50%, #00d2b4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #7a8bb5;
+            font-weight: 400;
+        }
+
+        /* ───── Grid ───── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 22px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 120, 255, 0.25);
+            background: rgba(56, 120, 255, 0.04);
+            box-shadow: 0 8px 32px rgba(56, 120, 255, 0.08);
+        }
+
+        .card-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 14px;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f0f4ff;
+        }
+
+        .card p {
+            font-size: 11.5px;
+            line-height: 1.6;
+            color: #8a99be;
+            margin-bottom: 14px;
+        }
+
+        .benefit-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10.5px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        /* Color themes for each card */
+        .card-blue .card-icon  { background: rgba(56, 120, 255, 0.12); }
+        .card-blue .benefit-tag { background: rgba(56, 120, 255, 0.10); color: #6ea8ff; }
+
+        .card-teal .card-icon  { background: rgba(0, 210, 180, 0.12); }
+        .card-teal .benefit-tag { background: rgba(0, 210, 180, 0.10); color: #00d2b4; }
+
+        .card-purple .card-icon  { background: rgba(160, 100, 255, 0.12); }
+        .card-purple .benefit-tag { background: rgba(160, 100, 255, 0.10); color: #b48aff; }
+
+        .card-amber .card-icon  { background: rgba(255, 180, 50, 0.12); }
+        .card-amber .benefit-tag { background: rgba(255, 180, 50, 0.10); color: #ffb432; }
+
+        .card-rose .card-icon  { background: rgba(255, 90, 120, 0.12); }
+        .card-rose .benefit-tag { background: rgba(255, 90, 120, 0.10); color: #ff5a78; }
+
+        .card-cyan .card-icon  { background: rgba(0, 180, 240, 0.12); }
+        .card-cyan .benefit-tag { background: rgba(0, 180, 240, 0.10); color: #00b4f0; }
+
+        /* ───── Footer ───── */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-left {
+            font-size: 11px;
+            color: #4e5f82;
+        }
+
+        .impact-summary {
+            display: flex;
+            gap: 28px;
+        }
+
+        .impact-item {
+            text-align: center;
+        }
+
+        .impact-value {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6ea8ff, #00d2b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .impact-label {
+            font-size: 9.5px;
+            color: #5a6a8e;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 500;
+        }
+
+        /* Print-friendly */
+        @media print {
+            body { background: #fff; }
+            .slide {
+                box-shadow: none;
+                border: 2px solid #ddd;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">S</div>
+            <span class="logo-text">Smartnode Automations</span>
+        </div>
+        <div class="badge">AI / ML Strategy • Customer Support</div>
+    </div>
+
+    <!-- Title -->
+    <div class="title-section">
+        <h1>AI-Powered Customer Experience & Support Efficiency</h1>
+        <p class="subtitle">Proposed use cases for the Customer & Dealer Support Department — leveraging AI/ML to reduce workload, accelerate resolution, and delight customers</p>
+    </div>
+
+    <!-- Use Case Cards -->
+    <div class="cards-grid">
+
+        <!-- 1. Intelligent Call Transcription & Triage -->
+        <div class="card card-blue">
+            <div class="card-icon">🎙️</div>
+            <h3>Call Transcription & Auto-Triage</h3>
+            <p>Automatic speech-to-text on every call recording, followed by NLP classification into <strong>Closed / Open / Urgent</strong> buckets. Enables instant priority routing and SLA tracking.</p>
+            <span class="benefit-tag">⏱ 60% faster triage</span>
+            <span class="benefit-tag">📉 Fewer missed escalations</span>
+        </div>
+
+        <!-- 2. AI Chatbot / Virtual Assistant -->
+        <div class="card card-teal">
+            <div class="card-icon">🤖</div>
+            <h3>AI Chatbot for FAQs & Troubleshooting</h3>
+            <p>24/7 conversational assistant trained on Smartnode's product catalog (touch switches, IR blasters, curtain controllers). Resolves common setup & pairing queries instantly.</p>
+            <span class="benefit-tag">🔄 40% ticket deflection</span>
+            <span class="benefit-tag">🌙 24/7 availability</span>
+        </div>
+
+        <!-- 3. Sentiment Analysis -->
+        <div class="card card-purple">
+            <div class="card-icon">💬</div>
+            <h3>Real-Time Sentiment Analysis</h3>
+            <p>Analyze live calls, emails & chats for negative sentiment to auto-escalate at-risk interactions. Tracks CSAT trends across product lines and dealer regions.</p>
+            <span class="benefit-tag">😊 +15 pt CSAT lift</span>
+            <span class="benefit-tag">🚨 Proactive escalation</span>
+        </div>
+
+        <!-- 4. Predictive Maintenance Alerts -->
+        <div class="card card-amber">
+            <div class="card-icon">🔔</div>
+            <h3>Predictive Maintenance Alerts</h3>
+            <p>ML models trained on historical ticket data to predict device failures (e.g., switch connectivity drops). Proactively notify customers & dealers before issues arise.</p>
+            <span class="benefit-tag">🛡️ –30% repeat tickets</span>
+            <span class="benefit-tag">⬆️ Brand trust</span>
+        </div>
+
+        <!-- 5. Knowledge-Base Auto-Generation -->
+        <div class="card card-rose">
+            <div class="card-icon">📚</div>
+            <h3>Smart Knowledge Base & Agent Assist</h3>
+            <p>Auto-generate FAQ articles from resolved tickets. Surface real-time answer suggestions to agents during calls using RAG over product manuals & past solutions.</p>
+            <span class="benefit-tag">⚡ 35% faster resolution</span>
+            <span class="benefit-tag">📖 Self-service growth</span>
+        </div>
+
+        <!-- 6. Dealer Performance Analytics -->
+        <div class="card card-cyan">
+            <div class="card-icon">📊</div>
+            <h3>Dealer Performance & Demand Forecasting</h3>
+            <p>Dashboard tracking dealer-level complaint rates, resolution quality & product return patterns. ML-powered demand forecasting to optimize inventory across regions.</p>
+            <span class="benefit-tag">📈 Data-driven decisions</span>
+            <span class="benefit-tag">🏪 Dealer enablement</span>
+        </div>
+
+    </div>
+
+    <!-- Footer with impact summary -->
+    <div class="footer">
+        <div class="footer-left">
+            Prepared by Data Science Team · Smartnode Automations Pvt. Ltd. · May 2026
+        </div>
+        <div class="impact-summary">
+            <div class="impact-item">
+                <div class="impact-value">~50%</div>
+                <div class="impact-label">Workload Reduction</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-value">2×</div>
+                <div class="impact-label">Resolution Speed</div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-value">+20pt</div>
+                <div class="impact-label">NPS Improvement</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

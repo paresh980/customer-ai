@@ -1,0 +1,7 @@
+openai-whisper
+transformers
+torch
+gtts
+pydub
+soundfile
+matplotlib
